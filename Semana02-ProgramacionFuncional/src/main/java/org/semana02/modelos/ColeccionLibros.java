@@ -79,7 +79,7 @@ public class ColeccionLibros {
                 .map(Libro::getAutor)
                 .distinct()
                 .toList();
-        // Otra forma de hacerlo es mediante Set, ya que distinct() es una operación costosa.
+        // Otra forma de hacerlo es mediante Set.
         // return new ArrayList<>(new HashSet<>(libros.stream().map(Libro::getAutor).toList()));
     }
 
@@ -99,7 +99,7 @@ public class ColeccionLibros {
 
     //10. Obtener los autores que tengan más de 1 libro listado.
     public List<String> listarAutoresConMasDeUnLibro() {
-        // Opción 1
+        // Opción 1 creando un HashMap de forma manual
         /*
         HashMap<String, Integer> autores = new HashMap<>();
         // libros.forEach(l -> autores.put(l.getAutor(), autores.getOrDefault(l.getAutor(), 0) + 1));
@@ -109,7 +109,7 @@ public class ColeccionLibros {
                 .map(Map.Entry::getKey)
                 .toList();
        */
-        // Opción 2
+        // Opción 2 con el HasmMap creado de forma funcional
         return libros.stream()
                 // Recopila los libros del stream en un mapa,
                 // agrupándolos por autor (clave) y contando cuántos libros tiene cada autor (valor)
